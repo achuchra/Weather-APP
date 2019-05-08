@@ -1,0 +1,94 @@
+:root {
+  --background-color: rgba(54, 160, 203, 0.7);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+html {
+  background-color: #2672ad;
+  background-image: url("clouds.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-y: 0;
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  margin-top: 100px;
+}
+
+header > form {
+  text-align: center;
+  padding: 15px;
+}
+
+header > form > input {
+  width: 250px;
+}
+
+h1 {
+  font-size: 1.3em;
+  font-family: "Raleway", sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.today {
+  margin-top: 1em;
+  grid-column-start: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
+  height: 200px;
+  background-color: var(--background-color);
+}
+
+.time {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.svg-today {
+  grid-row-start: span 2;
+}
+
+.tomorrow {
+  background-color: var(--background-color);
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.word-tomorrow {
+  grid-column-start: span 2;
+}
+
+.in-two-days {
+  background-color: var(--background-color);
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.word-in-two-days {
+  grid-column-start: span 2;
+}

@@ -7,7 +7,7 @@
     <title>Weather application</title>
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Lato|Raleway"
+      href="https://fonts.googleapis.com/css?family=Lato|Raleway|Comfortaa"
       rel="stylesheet"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -15,40 +15,50 @@
   <body>
     <div class="wrapper">
       <div class="side-left"></div>
-      <div class="main">
+      <div class="main" id="main">
         <header>
           <h1>Weather app</h1>
           <form id="location">
-            <label>Location:</label>
-            <input type="text" class="form_location2" id="form_location" />
+            <input
+              type="text"
+              class="form_location2"
+              id="form_location"
+              placeholder="Location"
+              autocomplete="off"
+              ;
+            />
             <button type="submit">Search</button>
           </form>
         </header>
-        <main>
+        <main id="mainHTML" class="mainHTML">
           <div class="today">
-            <div class="word-today">Szczecin today</div>
-            <div class="time">14:15:16</div>
-            <div class="temperature-today">4 d C</div>
-            <div class="svg-today">Icon</div>
-            <div class="comment-today">Rainy and sunny</div>
+            <div class="word-today" id="word">today</div>
+            <div class="time"></div>
+            <div class="temperature" id="temperature-today"></div>
+            <div class="svg-today">
+              <canvas class="icon" width="128" height="128"></canvas>
+            </div>
+            <div class="comment-today" id="comment-today"></div>
           </div>
           <div class="tomorrow">
-            <div class="word-tomorrow">Szczecin tomorrow</div>
-            <div class="temperature-tomorrow">4 d C</div>
-            <div class="svg-tomorrow">Icon Tomorrow</div>
+            <div class="word-tomorrow" id="word2">tomorrow</div>
+            <div class="temperature" id="temperature-tomorrow"></div>
+            <div class="svg-tomorrow">
+              <canvas class="icon2" width="128" height="128"></canvas>
+            </div>
           </div>
           <div class="in-two-days">
-            <div class="word-in-two-days">Szczecin in two days</div>
-            <div class="temperature-in-two-days">4 d C</div>
-            <div class="svg-in-two-days">Icon in Two Days</div>
+            <div class="word-in-two-days" id="word3">in two days</div>
+            <div class="temperature" id="temperature-in-two-days"></div>
+            <div class="svg-in-two-days">
+              <canvas class="icon3" width="128" height="128"></canvas>
+            </div>
           </div>
         </main>
       </div>
       <div class="side-right"></div>
     </div>
-    <main>
-      <div id="contain"></div>
-    </main>
+    <script src="skycons.js"></script>
     <script src="app.js" type="text/javascript"></script>
   </body>
 </html>

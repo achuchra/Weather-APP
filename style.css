@@ -1,5 +1,6 @@
 :root {
-  --background-color: rgba(54, 160, 203, 0.7);
+  --background-color: rgba(69, 155, 222, 0.5);
+  --font-size: 2em;
 }
 
 * {
@@ -11,12 +12,13 @@
 
 html {
   background-color: #2672ad;
-  background-image: url("clouds.jpg");
+  background-image: url("/img-svg/clouds.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  background-position-y: 0;
+  background-position-y: 170px;
   color: white;
-  font-family: "Lato", sans-serif;
+  font-family: "Comfortaa";
+  font-weight: light;
 }
 
 textarea:focus,
@@ -26,28 +28,96 @@ input:focus {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-top: 100px;
 }
 
 header > form {
-  text-align: center;
-  padding: 15px;
+  margin-top: 70px;
+  margin-bottom: 25px;
 }
 
 header > form > input {
-  width: 250px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 1em;
+  padding: 0.25em 0.5em 0.3125em;
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.25em;
+  background: transparent;
+  transition: all 0.1s;
+  width: 50%;
+  margin-right: 20px;
+  padding-left: 19px;
+  height: 40px;
+}
+input::placeholder {
+  color: rgb(255, 255, 255, 0.25);
+  font-size: 0.8em;
+}
+
+input:focus {
+  outline: none;
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+input.keyup {
+  color: white;
+  border-color: white;
+  text-shadow: 0 0 0.125em white;
+  box-shadow: 0 0 0.25em white, inset 0 0 0.25em white;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid white;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  height: 40px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+button:active {
+  background-color: rgba(255, 255, 255, 0.65);
 }
 
 h1 {
   font-size: 1.3em;
   font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 0.95em;
+  width: 68%;
+  border-bottom: 2px solid;
+  margin-top: 5px;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+h1:hover:after {
+  width: 92.5%;
 }
 
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
 }
 
 .today {
@@ -58,15 +128,22 @@ main {
   grid-template-rows: 1fr 2fr 2fr;
   height: 200px;
   background-color: var(--background-color);
+  padding: 20px;
 }
 
 .time {
   text-align: right;
-  padding-right: 15px;
+  /* padding-right: 15px; */
 }
 
 .svg-today {
   grid-row-start: span 2;
+  text-align: center;
+}
+
+.svg-tomorrow,
+.svg-in-two-days {
+  text-align: center;
 }
 
 .tomorrow {
@@ -75,6 +152,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr;
+  padding: 20px;
 }
 
 .word-tomorrow {
@@ -87,8 +165,48 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 3fr;
+  padding: 20px;
 }
 
 .word-in-two-days {
   grid-column-start: span 2;
+}
+
+.temperature {
+  font-size: var(--font-size);
+  line-height: 3em;
+  font-weight: bold;
+}
+
+#loading {
+  background-image: url("/img-svg/Spinner-1s-200px.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-color: rgba(54, 160, 203, 0.7); */
+}
+
+.mainHTML {
+  opacity: 0.45;
+  transition: all 1s ease-out;
+}
+
+#mainHTML_loaded {
+  opacity: 1;
+  animation: scale 750ms forwards ease-in;
+  animation-delay: 1s;
+}
+
+@keyframes scale {
+  0% {
+    grid-gap: 0em;
+  }
+  100% {
+    grid-gap: 1em;
+  }
+}
+
+#word,
+#word2,
+#word3 {
+  opacity: 0;
 }
